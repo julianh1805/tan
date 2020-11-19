@@ -1,0 +1,28 @@
+<div class="global" *ngIf="loading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="fullscreen">
+    <div class="form">
+        <div class="header">
+            <img src="../../../assets/images/logo-tan.png">
+        </div>
+    <form >
+        <div class="form-group">
+          <label for="username">Username :</label>
+          <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" placeholder="">
+          <small id="alert" class="form-text text-muted" *ngIf="submitted && !username" >Ce champ est obligatoire.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe :</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="" [(ngModel)]="password">
+          <small id="alert" class="form-text text-muted" *ngIf="submitted && !password" >Ce champ est obligatoire.</small>
+        </div>
+        <div class="mb-3">
+            <small id="alert" class="form-text text-muted" *ngIf="unknown && password && username" >Le mot de passe est incorrecte ou l'utilisateur n'existe pas.</small>
+        </div>
+        <div class="button">
+            <button type="button" class="btn btn-primary" (click)="onSubmit()">Se connecter</button>
+        </div>
+      </form>
+   </div>
+</div>

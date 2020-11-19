@@ -1,0 +1,42 @@
+@import '../../../assets/scss/variables.scss';
+
+.global {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(54, 54, 54, 0.473);
+}
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .form {
+    max-width: 400px;
+    margin: auto;
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+
+      img {
+        width: 60%;
+        margin: auto;
+      }
+    }
+
+    button {
+      width: 100%;
+    }
+
+    #alert {
+      color: red !important;
+    }
+  }
+}

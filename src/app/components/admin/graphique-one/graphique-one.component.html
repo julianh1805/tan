@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Graphique des prévisions</h1>
+</div>
+<div *ngIf="loading" class="global">
+    <app-loading-spinner ></app-loading-spinner>
+  </div>
+<div class="graph" *ngIf="!loading">
+<div class="buttons mb-4">
+    <button class="btn btn-secondary mr-2" (click)="fetchDefault()" [class.active]="params === 'default'">Par défault</button>
+    <button class="btn btn-secondary mr-2" (click)="fetchYear()" [class.active]="params === 'year'">Par année</button>
+    <button class="btn btn-secondary mr-2" (click)="fetchMonth()" [class.active]="params === 'month'">Par mois</button>
+    <button class="btn btn-secondary" (click)="fetchDay()" [class.active]="params === 'day'">Par jour</button>
+    <!-- <ngb-datepicker #d1 [(ngModel)]="date" #c1="ngModel"></ngb-datepicker> -->
+ </div>
+    <div>
+        <div style="display: block">
+            <canvas baseChart 
+            [datasets]="lineChartData" 
+            [labels]="lineChartLabels" 
+            [options]="lineChartOptions"
+            [colors]="lineChartColors" 
+            [legend]="lineChartLegend" 
+            [chartType]="lineChartType" 
+            [plugins]="lineChartPlugins">
+        </canvas>
+                  </div>
+      </div>
+    </div>

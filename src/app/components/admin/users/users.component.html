@@ -1,0 +1,58 @@
+
+<div *ngIf="view === 'set'" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Utilisateurs</h1>
+</div>
+<div *ngIf="loading" class="global">
+  <app-loading-spinner ></app-loading-spinner>
+</div>
+<div *ngIf="view === 'set' && !loading">
+  <div class="users" *ngFor="let user of users; index as index">
+    <div class="user mb-4">
+    <p>{{user.username}}</p>
+    <div class="buttons">
+      <button [disabled]="editMode && index != i" class="btn btn-warning mr-2" (click)="edit(index)">Modifier</button>
+      <button [disabled]="editMode && index != i"  class="btn btn-danger" (click)="delete(user)">Supprimer</button>
+    </div>
+    <form *ngIf="editMode && index === i">
+      <div class="form-group mt-2">
+        <label for="tex">Username :</label>
+        <input type="text" class="form-control" id="text" name="text" placeholder="" [(ngModel)]="username">
+        <small id="alert" class="form-text text-muted" *ngIf="submitted && !username" >Ce champ est obligatoire.</small>
+      </div>
+      <div class="button">
+        <button type="button" class="btn btn-primary mr-2" (click)="set(user.id)">Sauvegarder</button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+
+<div *ngIf="view === 'add'  && !loading">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Ajouter un utilisateur</h1>
+</div>
+<form>
+  <div class="form-group">
+    <label for="username">Username :</label>
+    <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" placeholder="">
+    <small id="alert" class="form-text text-muted" *ngIf="submitted && !username" >Ce champ est obligatoire.</small>
+  </div>
+  <div class="form-group">
+    <label for="password">Mot de passe</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="" [(ngModel)]="password">
+    <small id="alert" class="form-text text-muted" *ngIf="submitted && !password" >Ce champ est obligatoire.</small>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirmer mot de passe</label>
+    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="" [(ngModel)]="confirmPassword">
+    <small id="alert" class="form-text text-muted" *ngIf="submitted && !confirmPassword" >Ce champ est obligatoire.</small>
+  </div>
+  <div class="mb-3">
+      <small id="alert" class="form-text text-muted" *ngIf="submitted && password != confirmPassword">Les mots de passes doivent être identiques.</small>
+  </div>
+  <div class="button">
+      <button type="button" class="btn btn-primary" (click)="add()">Ajouter</button>
+  </div>
+</form>
+</div>

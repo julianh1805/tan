@@ -1,0 +1,10 @@
+<div class="modal-header">
+    <h4 class="modal-title">Supprimer un utilisateur</h4>
+  </div>
+  <div class="modal-body">
+    <p>Êtes vous sûr de supprimer l'utilisateur <strong>{{user.username}}</strong> ? Cette action est irrevérsible !</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="delete()">Supprimer</button>
+    <button type="button" class="btn btn-secondary" (click)="modal.close()">Close</button>
+  </div>

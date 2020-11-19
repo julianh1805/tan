@@ -1,0 +1,29 @@
+.user {
+  margin-bottom: 14px;
+
+  p {
+    margin-bottom: 3px;
+  }
+
+  .buttons {
+    button {
+      font-size: 14px !important;
+
+    }
+  }
+}
+
+form {
+  max-width: 520px;
+
+  #alert {
+    color: red !important;
+  }
+}
+
+.global {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
