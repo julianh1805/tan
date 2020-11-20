@@ -4,6 +4,10 @@ body {
   margin: 0;
 }
 
+.btn-link {
+  color: $primary-color !important;
+}
+
 .btn-primary {
   background-color: $primary-color !important;
   border-color: $primary-color !important;
@@ -13,6 +17,6 @@ body {
   }
 }
 
-input.form-control:focus {
+.form-control:focus {
   box-shadow: 0 0 0 0.2rem rgba(54, 184, 28, 0.5) !important;
 }

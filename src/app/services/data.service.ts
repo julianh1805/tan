@@ -24,11 +24,24 @@ export class DataService {
       return res;
     }))
   }
-  // getLignes() {
-  //   return this.http.get<any>(environment.api + 'ligne/').pipe(map(res => {
-  //     return res;
-  //   }))
-  // }
+
+  getPredictions(annee, mois, jour, hour, ligne) {
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('year', annee);
+    httpParams = httpParams.append('month', mois);
+    httpParams = httpParams.append('day', jour);
+    httpParams = httpParams.append('hour', hour);
+    httpParams = httpParams.append('ligne_id', ligne);
+    return this.http.get<any>(environment.api + 'prediction/', { params: httpParams }).pipe(map(res => {
+      return res;
+    }))
+  }
+
+  getLignes() {
+    return this.http.get<any>(environment.api + 'ligne/').pipe(map(res => {
+      return res;
+    }))
+  }
 
   // getTrams() {
   //   return this.http.get<any>(environment.api + 'tram/').pipe(map(res => {

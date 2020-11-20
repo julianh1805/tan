@@ -6,7 +6,7 @@ import { AdminComponent } from './admin.component';
 import { ChartsModule, ThemeService } from 'ng2-charts';
 import { UsersComponent } from './users/users.component';
 import { CommonModule } from '@angular/common';
-import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepicker, NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { GraphiqueOneComponent } from './graphique-one/graphique-one.component';
@@ -18,7 +18,7 @@ import { GraphiqueOneComponent } from './graphique-one/graphique-one.component';
     DashboardComponent,
     UsersComponent,
     LoadingSpinnerComponent,
-    GraphiqueOneComponent,
+    GraphiqueOneComponent
   ],
   imports: [
     AdminRoutingModule,
@@ -28,7 +28,7 @@ import { GraphiqueOneComponent } from './graphique-one/graphique-one.component';
     NgbModule,
     NgbDropdownModule
   ],
-  exports: [LoadingSpinnerComponent],
+  exports: [LoadingSpinnerComponent, NgbModule],
   providers: [
     ThemeService
   ],
