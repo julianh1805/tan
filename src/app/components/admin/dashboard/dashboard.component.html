@@ -13,7 +13,7 @@
           <tr>
             <th scope="col">Ligne</th>
             <th scope="col">Tram</th>
-            <th scope="col">Prévision du nombre de passager</th>
+            <th scope="col">Prévision du nombre de passagers</th>
             <th scope="col">Etat</th>
           </tr>
           </thead>
@@ -33,6 +33,8 @@
           </tr>
           </tbody>
         </table>
+        <button class="btn btn-secondary mb-3" [disabled]="notDisplay" (click)="change()">{{tramToDeploy.isApproved ? 'Annuler ce tram' : 'Déployer ce tram'}}</button>
+        <br>
         <button class="btn btn-primary mb-5" (click)="submit()">Chercher une nouvelle prédiction</button>
       </div>
       <h2 class="mt-2 mb-3" *ngIf="!tramToDeploy">Tram à deployer</h2>

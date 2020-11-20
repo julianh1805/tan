@@ -37,6 +37,18 @@ export class DataService {
     }))
   }
 
+  changePrediction(id, boolean) {
+    let bln;
+    if (boolean) {
+      bln = 'True'
+    } else {
+      bln = 'False'
+    }
+    return this.http.put<any>(environment.api + `prediction/${id}/`, { id: id, 'isApproved': bln }).pipe(map(res => {
+      return res;
+    }))
+  }
+
   getLignes() {
     return this.http.get<any>(environment.api + 'ligne/').pipe(map(res => {
       return res;

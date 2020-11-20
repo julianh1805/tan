@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   public trajets = [];
 
   loading = false;
+  notDisplay = false;
   date;
   ligne;
   time;
@@ -43,6 +44,14 @@ export class DashboardComponent implements OnInit {
         this.tramToDeployDate = res.date.day + '/' + res.date.month + '/' + res.date.year + ' de ' + res.time.hour + 'h à ' + (res.time.hour + 1) + 'h'
         this.tramToDeployLigne = +res.ligne
       }
+    })
+  }
+
+  change() {
+    this.notDisplay = true;
+    this.dataService.changePrediction(this.tramToDeploy.id, !this.tramToDeploy.isApproved).subscribe(res => {
+      this.tramToDeploy.isApproved = !this.tramToDeploy.isApproved;
+      this.notDisplay = false;
     })
   }
 
